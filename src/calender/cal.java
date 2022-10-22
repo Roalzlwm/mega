@@ -12,6 +12,7 @@ public class cal {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         System.out.println("today Date : "+sf.format(now));
         System.out.println("-----------------------------");
+        System.out.println("hello");
 
 
 
