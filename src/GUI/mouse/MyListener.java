@@ -1,4 +1,4 @@
-package GUI;
+package GUI.mouse;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,22 +1,20 @@
-package GUI;
+package GUI.mouse;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.management.BufferPoolMXBean;
 
 // JFrame -> 화면창
 public class MyFrame extends JFrame {
 
+    private Container cp;
+
     MyFrame(){
-        setTitle("헤헿 프로그램");
-        setSize(300,300);
 
-        Container contentPan = getContentPane();
-        contentPan.setBackground(Color.WHITE);
-        MyMouse mm = new MyMouse(new JLabel());
-
-        Container cp = getContentPane();
+        // contentpane
+        this.cp = getContentPane();
+        this.cp.setBackground(Color.WHITE);
         cp.setLayout(new FlowLayout(FlowLayout.LEFT,30,40));
+
         JLabel jl = new JLabel("현재 좌표는 X: Y: 입니다.");
         cp.addMouseListener(new MyMouse(jl));
         cp.add(jl);
@@ -40,8 +38,20 @@ public class MyFrame extends JFrame {
 //        h.addActionListener(new MyListener("중"));
 //        cp.add(h,BorderLayout.CENTER);
 
+        this.setDefault();
+    }
+
+    void setDefault(){
+        // Jframe
+        setTitle("헤헿 프로그램");
+        setSize(300,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);   // 화면을 띄울 것인가 O/X
+    }
+
+    void addComponent(Component comp){
+        this.cp.addMouseListener(new MyMouse((JLabel) comp));
+        this.cp.add(comp);
     }
 
 }
